@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darius Wintz - Interactive Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-[#0f172a] dark:text-white font-sans transition-colors">
+  <div class="max-w-4xl mx-auto p-6">
+    <div class="flex justify-end mb-4">
+      <button id="theme-toggle" class="px-4 py-2 text-sm font-medium bg-gray-200 dark:bg-gray-700 dark:text-white rounded">Toggle Theme</button>
+    </div>
+
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold animate-pulse">Darius Wintz</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">Enterprise Architect / Data Analyst</p>
+      <p class="text-sm mt-2">📞 +1 703-593-7404 | 📧 djwintz10@gmail.com | 📍 Alexandria, VA</p>
+    </header>
+
+    <section id="profile" class="mb-8 opacity-0 translate-y-5 transition-all duration-700 ease-in-out">
+      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Profile</h2>
+      <p>Strategic Enterprise Architect and Data Analyst with a proven record of driving innovation and scalable architecture for tech-forward companies. Adept at bridging the gap between complex infrastructure and compelling user experiences. Passionate about delivering seamless digital solutions, leveraging modern BI tools, data pipelines, and UX principles to support bold business objectives like those pursued by Netflix and top-tier media tech companies.</p>
+    </section>
+
+    <section id="skills" class="mb-8 opacity-0 translate-y-5 transition-all duration-700 ease-in-out">
+      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Skills</h2>
+      <ul class="grid grid-cols-2 gap-x-8 list-disc list-inside">
+        <li>Enterprise Architecture</li>
+        <li>Cloud Infrastructure Strategy</li>
+        <li>Cross-functional Collaboration</li>
+        <li>Agile Methodologies</li>
+        <li>Effective Communication</li>
+        <li>UX Research & Wireframes</li>
+        <li>SQL, ETL, Data Modeling</li>
+        <li>HTML, CSS, Bootstrap</li>
+        <li>Accessibility Compliance (508)</li>
+        <li>Analytics for Media & Streaming</li>
+      </ul>
+    </section>
+
+    <section id="experience" class="mb-8 opacity-0 translate-y-5 transition-all duration-700 ease-in-out">
+      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Work Experience</h2>
+      <div class="mb-4">
+        <h3 class="font-semibold">Enterprise Architect II – NTT Data</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Feb 2020 – Aug 2023</p>
+        <ul class="list-disc list-inside mt-2">
+          <li>Architected a BI platform to transform enterprise decision-making using real-time analytics and data fusion.</li>
+          <li>Led the integration of fragmented data streams into a cohesive enterprise data model, improving query consistency.</li>
+          <li>Maintained cloud-based infrastructure with zero downtime, supporting scalability and streaming media initiatives.</li>
+          <li>Designed and deployed a robust internal ticketing system to streamline workflows across distributed teams.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold">Enterprise Architect Jr. – Wisemen LLC</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">Aug 2023 – Present</p>
+        <ul class="list-disc list-inside mt-2">
+          <li>Re-engineered legacy internal platforms using modern web stacks (HTML/CSS/Bootstrap), achieving faster delivery cycles.</li>
+          <li>Served as client liaison and tech translator, adapting fast-evolving business requirements into agile deliverables.</li>
+          <li>Resolved 20+ production and team issues within the first 10 months, ensuring stability and user satisfaction.</li>
+          <li>Led compliance efforts to meet Section 508 accessibility standards, aligning with inclusive content delivery goals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education" class="mb-8 opacity-0 translate-y-5 transition-all duration-700 ease-in-out">
+      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Education</h2>
+      <p><strong>Virginia Commonwealth University</strong> – B.Sc. in Information Systems (2016 – 2020)</p>
+    </section>
+
+    <section id="certifications" class="mb-8 opacity-0 translate-y-5 transition-all duration-700 ease-in-out">
+      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Certifications</h2>
+      <p>CompTIA Security+ (Obtained Aug 2023)</p>
+    </section>
+
+    <section id="languages" class="mb-8 opacity-0 translate-y-5 transition-all duration-700 ease-in-out">
+      <h2 class="text-2xl font-semibold border-b pb-1 mb-4">Languages</h2>
+      <p>English (Fluent), Spanish (Novice)</p>
+    </section>
+
+    <footer class="text-center mt-10">
+      <a href="darius-wintz-2110122.pdf" download class="text-blue-500 dark:text-blue-400 underline">Download PDF Resume</a>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      // Scroll animation observer
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-5');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      sections.forEach(section => observer.observe(section));
+
+      // Dark mode toggle
+      const themeToggleButton = document.getElementById('theme-toggle');
+      themeToggleButton.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+      });
+    })();
+  </script>
+</body>
+</html>
